@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Verse.js - A Lightweight JS Framework</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="verse-styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" aria-current="page">Home</a>
+      <a href="/page2.html">Other page</a>
+      <a href="/week1html.html">Week 1</a>
+    </nav>
+
+    <main>
+      <header class="hero">
+        <h1>Verse.js</h1>
+        <p class="tagline">A lightweight JavaScript framework for building reactive UIs</p>
+      </header>
+
+      <section class="demo-section">
+        <h2>Counter Component</h2>
+        <div id="counter-app"></div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Todo List Component</h2>
+        <div id="todo-app"></div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Color Picker Component</h2>
+        <div id="color-app"></div>
+      </section>
+
+      <section class="docs-section">
+        <h2>How Verse.js Works</h2>
+        <div class="docs-grid">
+          <div class="doc-card">
+            <h3>Components</h3>
+            <p>Create reusable UI pieces with <code>Verse.component()</code>. Each component manages its own state and renders its own HTML.</p>
+          </div>
+          <div class="doc-card">
+            <h3>State</h3>
+            <p>Reactive state with <code>state: {}</code>. When state changes via <code>setState()</code>, the component automatically re-renders.</p>
+          </div>
+          <div class="doc-card">
+            <h3>Events</h3>
+            <p>Attach events using <code>v-on</code> attributes in your render function. Verse handles binding automatically.</p>
+          </div>
+          <div class="doc-card">
+            <h3>Mount</h3>
+            <p>Mount any component to any DOM element with <code>Verse.mount(component, '#selector')</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-section">
+        <h2>Example Code</h2>
+        <pre class="code-block"><code>const Counter = Verse.component({
+  state: { count: 0 },
+
+  methods: {
+    increment() {
+      this.setState({ count: this.state.count + 1 });
+    },
+    decrement() {
+      this.setState({ count: this.state.count - 1 });
+    }
+  },
+
+  render() {
+    return `
+      &lt;div class="counter"&gt;
+        &lt;button v-on="decrement"&gt;-&lt;/button&gt;
+        &lt;span&gt;${this.state.count}&lt;/span&gt;
+        &lt;button v-on="increment"&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+    `;
+  }
+});
+
+Verse.mount(Counter, '#counter-app');</code></pre>
+      </section>
+    </main>
+
+    <script type="module" src="verse.js"></script>
+    <script type="module" src="verse-demo.js"></script>
+  </body>
+</html>
